@@ -4,12 +4,10 @@ import com.example.carles2701.MedicalApp.Entity.LaboratoryTest;
 import com.example.carles2701.MedicalApp.Entity.OrderForTest;
 import com.example.carles2701.MedicalApp.Entity.Patient;
 import com.example.carles2701.MedicalApp.Entity.ResearchProject;
-import com.example.carles2701.MedicalApp.Repository.PatientRepository;
 import com.example.carles2701.MedicalApp.Service.LaboratoryTestService;
 import com.example.carles2701.MedicalApp.Service.OrderForTestService;
 import com.example.carles2701.MedicalApp.Service.PatientService;
 import com.example.carles2701.MedicalApp.Service.ResearchProjectService;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -174,5 +172,5 @@ public class AppController {
         orderForTestService.removeTestOrderById(id);
         return "redirect:/labo/order";
     }
-    
+
 }
