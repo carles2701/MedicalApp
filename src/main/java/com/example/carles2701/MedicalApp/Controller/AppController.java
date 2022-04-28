@@ -68,6 +68,12 @@ public class AppController {
         return "redirect:/patient/db";
     }
 
+    @GetMapping("/patient/db/view/{id}")
+    public String viewPatient(Model model, @PathVariable int id){
+        model.addAttribute("patient", patientService.getPatientById(id).get());
+        return "viewProduct";
+    }
+
     @GetMapping("/project")
     public String getResearchProjects(Model model){
         model.addAttribute("projects",researchProjectService.getAllResearchProjects());
@@ -101,6 +107,12 @@ public class AppController {
     public String deleteResearchProject(@PathVariable int id){
         researchProjectService.removeResearchProjectById(id);
         return "redirect:/project";
+    }
+
+    @GetMapping("/project/view/{id}")
+    public String viewResearchProject(Model model, @PathVariable int id){
+        model.addAttribute("project", researchProjectService.getResearchProjectById(id));
+        return "viewResearchProjectPage";
     }
 
     @GetMapping("/labo/test")
@@ -138,6 +150,12 @@ public class AppController {
         return "redirect:/labo/test";
     }
 
+    @GetMapping("/labo/test/view/{id}")
+    public String viewLaboTest(Model model, @PathVariable int id){
+        model.addAttribute("laboTest", laboratoryTestService.getPLaboTestById(id).get());
+        return "viewLaboTestPage";
+    }
+
     @GetMapping("/labo/order")
     public String getOrders(Model model){
         model.addAttribute("orders", orderForTestService.getAllTestOrders());
@@ -171,6 +189,12 @@ public class AppController {
     public String deleteOrder(@PathVariable int id){
         orderForTestService.removeTestOrderById(id);
         return "redirect:/labo/order";
+    }
+
+    @GetMapping("/labo/test/view/{id}")
+    public String viewOrder(Model model, @PathVariable int id){
+        model.addAttribute("order", orderForTestService.getTestOrderById(id));
+        return "viewOrderForTestPage";
     }
 
 }
