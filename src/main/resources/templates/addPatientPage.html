@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>TicketShop</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/}" href="#">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/labo/test}" href="#">Tests</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/labo/order}" href="#">Orders for test</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/project}" href="#">Research Projects</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/patient/db}" href="#">Patients</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center">Add Patient to DB</h1>
+            <div class="card-body">
+                <form th:action="@{/patient/db/add}" method="post" th:object="${}" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Patient name</label>
+                        <input
+                                type="text"
+                                name="name"
+                                required th:field="*{name}"
+                                class="form-control"
+                                placeholder="Enter name of patient"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Patient surname</label>
+                        <input
+                                type="text"
+                                name="surname"
+                                required th:field="*{surname}"
+                                class="form-control"
+                                placeholder="Enter surname of patient"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Patient date of birth</label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                required th:field="*{dateOfBirth}" name="dateOfBirth" id="dateOfBirth"
+                                placeholder="Day of birth"/>
+                    </div>
+                    <div class="footer-body">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
