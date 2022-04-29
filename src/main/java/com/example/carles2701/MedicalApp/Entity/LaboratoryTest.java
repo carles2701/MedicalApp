@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -14,8 +15,10 @@ import javax.persistence.Entity;
 @Setter
 public class LaboratoryTest {
 
-    public int id;
-    public String testName;
+    private int id;
+    private String testName;
     private Patient patient;
+
+
 
 }
