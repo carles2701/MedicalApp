@@ -30,4 +30,13 @@ public class PatientService {
         return patientRepository.findById(id);
     }
 
+    public List<Ticket>getAllTicketsByArtistId(int id){
+        return ticketsRepository.findAllByArtist_Id(id);
+    }
+
+    public List<Ticket>getAllTicketsByArtistId(int id){
+        return ticketsRepository.findAllByArtist_Id(id);
+    }
+
+
 }

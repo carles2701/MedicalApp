@@ -31,4 +31,9 @@ public class LaboratoryTestService {
     public Optional<LaboratoryTest> getPLaboTestById(int id){
         return laboratoryTestRepository.findById(id);
     }
+
+    public List<Ticket>getAllTicketsByArtistId(int id){
+        return ticketsRepository.findAllByArtist_Id(id);
+    }
+
 }
