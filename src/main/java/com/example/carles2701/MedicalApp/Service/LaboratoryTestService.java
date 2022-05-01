@@ -3,7 +3,6 @@ package com.example.carles2701.MedicalApp.Service;
 import com.example.carles2701.MedicalApp.Entity.LaboratoryTest;
 import com.example.carles2701.MedicalApp.Entity.Patient;
 import com.example.carles2701.MedicalApp.Repository.LaboratoryTestRepository;
-import com.example.carles2701.MedicalApp.Repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,8 +31,8 @@ public class LaboratoryTestService {
         return laboratoryTestRepository.findById(id);
     }
 
-    public List<Ticket>getAllTicketsByArtistId(int id){
-        return ticketsRepository.findAllByArtist_Id(id);
+    public List<LaboratoryTest>getAllLaboTestsByOrderId(int id){
+        return laboratoryTestRepository.findAllByOrder_id(id);
     }
 
 }

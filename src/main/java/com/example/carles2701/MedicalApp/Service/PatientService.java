@@ -1,5 +1,6 @@
 package com.example.carles2701.MedicalApp.Service;
 
+import com.example.carles2701.MedicalApp.Entity.LaboratoryTest;
 import com.example.carles2701.MedicalApp.Entity.Patient;
 import com.example.carles2701.MedicalApp.Repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +31,11 @@ public class PatientService {
         return patientRepository.findById(id);
     }
 
-    public List<Ticket>getAllTicketsByArtistId(int id){
-        return ticketsRepository.findAllByArtist_Id(id);
+    public List<Patient>getAllPatientsByResearchProjectsId(int id){
+        return patientRepository.findAllByProject_id(id);
     }
-
-    public List<Ticket>getAllTicketsByArtistId(int id){
-        return ticketsRepository.findAllByArtist_Id(id);
+    public List<Patient>getAllPatientsByLaboratoryTestsId(int id){
+        return patientRepository.findAllBYLaboTest_id(id);
     }
-
 
 }
