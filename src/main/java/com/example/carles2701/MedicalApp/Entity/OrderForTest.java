@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
@@ -14,8 +14,13 @@ import javax.persistence.Entity;
 @Setter
 public class OrderForTest {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id")
     private int id;
     private String nameOfOrder;
     private String dateOfOrder;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "laboTest_id", referencedColumnName = "laboTest_id")
     private LaboratoryTest laboratoryTest;
 }
