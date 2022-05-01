@@ -36,7 +36,7 @@
 </nav>
 <div class = "container">
     <div class = "row">
-        <h3>List of research projects</h3>
+        <h3 th:text="${project.name}"></h3>
     </div>
 
     <div class="row">
@@ -48,29 +48,14 @@
         <thead class = "table-dark">
         <tr>
             <th>Lp</th>
-            <th>Research Project Name</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Patients</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr th:each = "project: ${projects}">
+        <tr th:each = "patient: ${patients}">
             <td th:text = "${iStat.index + 1}"></td>
-            <td th:text = "${project.nameOfProject}"></td>
-            <td>
-                <a th:href="@{/project/view/{id}(id=${project.id})}"
-                   class="btn btn-primary">View</a>
-            </td>
-            <td>
-                <a th:href="@{/project/update/{id}(id=${project.id})}"
-                   class="btn btn-primary">Update</a>
-            </td>
-            <td>
-                <a th:href="@{/project/delete/{id}(id=${project.id})}"
-                   class="btn btn-danger">Delete</a>
-            </td>
+            <td th:text = "${patient.nameAndSurname()}"></td>
         </tr>
         </tbody>
     </table>

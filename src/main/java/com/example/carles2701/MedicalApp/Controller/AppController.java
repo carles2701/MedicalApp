@@ -68,12 +68,6 @@ public class AppController {
         return "redirect:/patient/db";
     }
 
-    @GetMapping("/patient/db/view/{id}")
-    public String viewPatient(Model model, @PathVariable int id){
-        model.addAttribute("patient", patientService.getPatientById(id).get());
-        return "viewProduct";
-    }
-
     @GetMapping("/project")
     public String getResearchProjects(Model model){
         model.addAttribute("projects",researchProjectService.getAllResearchProjects());
@@ -112,6 +106,7 @@ public class AppController {
     @GetMapping("/project/view/{id}")
     public String viewResearchProject(Model model, @PathVariable int id){
         model.addAttribute("project", researchProjectService.getResearchProjectById(id));
+        model.addAttribute("patients", patientService.getAllPatientsByResearchProjectsId(id));
         return "viewResearchProjectPage";
     }
 
@@ -153,6 +148,7 @@ public class AppController {
     @GetMapping("/labo/test/view/{id}")
     public String viewLaboTest(Model model, @PathVariable int id){
         model.addAttribute("laboTest", laboratoryTestService.getPLaboTestById(id).get());
+        model.addAttribute("patients", patientService.getAllPatientsByLaboratoryTestsId(id));
         return "viewLaboTestPage";
     }
 
@@ -194,6 +190,7 @@ public class AppController {
     @GetMapping("/labo/test/view/{id}")
     public String viewOrder(Model model, @PathVariable int id){
         model.addAttribute("order", orderForTestService.getTestOrderById(id));
+        model.addAttribute("laboTests", laboratoryTestService.getAllLaboTestsByOrderId(id));
         return "viewOrderForTestPage";
     }
 

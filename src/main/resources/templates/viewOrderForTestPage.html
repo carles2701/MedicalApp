@@ -36,41 +36,26 @@
 </nav>
 <div class = "container">
     <div class = "row">
-        <h3>List of research projects</h3>
+        <h3 th:text="${order.name}"></h3>
     </div>
 
     <div class="row">
         <div class="col-lg-3">
-            <a th:href = "@{/project/add}" class="btn btn-primary btn-sm mb-3">Add research project</a>
+            <a th:href = "@{/labo/order/add}" class="btn btn-primary btn-sm mb-3">Add order for lab test</a>
         </div>
     </div>
     <table class = "table table-striped table-bordered">
         <thead class = "table-dark">
         <tr>
             <th>Lp</th>
-            <th>Research Project Name</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Lab tests</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr th:each = "project: ${projects}">
+        <tr th:each = "laboTest, iStat : ${laboTests}">
             <td th:text = "${iStat.index + 1}"></td>
-            <td th:text = "${project.nameOfProject}"></td>
-            <td>
-                <a th:href="@{/project/view/{id}(id=${project.id})}"
-                   class="btn btn-primary">View</a>
-            </td>
-            <td>
-                <a th:href="@{/project/update/{id}(id=${project.id})}"
-                   class="btn btn-primary">Update</a>
-            </td>
-            <td>
-                <a th:href="@{/project/delete/{id}(id=${project.id})}"
-                   class="btn btn-danger">Delete</a>
-            </td>
+            <td th:text = "${laboTest.name}"></td>
         </tr>
         </tbody>
     </table>
